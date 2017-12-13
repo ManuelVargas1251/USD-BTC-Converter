@@ -1,0 +1,115 @@
+<html id="body" ng-app="btc_app" ng-init="stdbtc=1;stdusd=0;_btc=100.0;" ng-controller="price">
+
+	<head>
+		<title>USD to BTC Converter</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+		<!-- JS Libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+		<!--		<script src="https://code.angularjs.org/1.6.6/angular-route.js"></script>-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+		<!--		<script src="js/clipboard.js-master/dist/clipboard.min.js"></script>-->
+
+
+		<!-- CSS Libraries -->
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="js/PINpad/index.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/darkly/bootstrap.min.css">
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+				integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+				crossorigin="anonymous"></script> 
+		<script src="js/index.js"></script>
+		<script src="js/PINpad/index.js"></script>
+
+	</head>
+
+	<!-- Title -->
+	<nav class="navbar navbar-light bg-light p-2 py-3 text-center">
+		<div class="container text-center">
+
+			<!-- Current Price -->
+			<input class="bg-light h2 focus text-warning" id="title_input" type="number" ng-model="btc"/>
+
+			<!-- Refresh Button -->
+			<span ng-click="update_price()">
+				<i class="fa fa-refresh fa-2x px-2" aria-hidden="true"></i>
+			</span>
+
+		</div>
+	</nav>
+
+	<!-- 
+btc = api btc dollar val
+_btc = user btc
+stdbtc = 1
+-->
+
+	<body id="body" ng-init="stdbtc=1;stdusd=0;_btc=0.53;">
+		<div class="container my-2 ">
+
+			<div class="card">
+				<div class="card-block px-2 pt-2">
+
+					<!-- Your Table-->
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="h3">USD</td>
+								<td>
+									<input id="user_usd" class="bg-light h3" type="number" ng-model="_btc"/>
+								</td>
+							</tr>	
+
+							<tr>
+								<td scope="row" class="h3">BTC 
+									<!--<i class="fa fa-arrow-right fa-1x px-2 " aria-hidden="true"></i>-->
+								</td>
+								<td id="copy_btc" scope="row" class="h3">
+									{{ (_btc/btc) | number: 7}}
+									<i class="fa fa-clipboard px-3" 
+									   ngclipboard data-clipboard-target="#copy_btc" 
+									   aria-hidden="true"></i>
+								</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+
+			<!-- Buttons -- >
+<div class="py-3">
+
+<! -- Round Button -- >
+<button 
+id="round_button" 
+type="button" 
+class="btn btn-primary btn-block btn-lg"
+ng-click="round_toggle()">Round</button>
+</div>
+-->
+
+			<!-- Keypad -->
+
+
+
+			<!-- About Card -->
+			<div class="card my-3">
+				<div class="card-body px-2 py-1">
+					<div class="card-text">
+						Powered by <a href="//www.coindesk.com/api/"
+									  target="_blank">CoinDesk</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</body>
+</html>
